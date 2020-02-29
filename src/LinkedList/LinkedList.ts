@@ -1,13 +1,12 @@
 import { getRandomInt } from "../utils";
 
 type ElementType = number;
+type LinkedListElementType = ILinkedListElement | undefined;
 
 interface ILinkedListElement {
   data: ElementType;
-  next: ILinkedListElement | undefined;
+  next: LinkedListElementType;
 }
-
-type LinkedListElementType = ILinkedListElement | undefined;
 
 class LinkedListElement implements ILinkedListElement {
   protected _next: LinkedListElementType;
