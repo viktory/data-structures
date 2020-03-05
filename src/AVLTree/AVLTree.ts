@@ -255,8 +255,42 @@ export class AVLTree implements IAVLTree {
 
   }
 
-  public print(elements: ElementType[] = [], pointer: NodeType = this.head) {
-    console.log(JSON.stringify(pointer));
+  public print() {
+    this.breadthFirstPrint();
+    this.depthFirstPrint();
+    // console.log(JSON.stringify(pointer));
+  }
+
+  public depthFirstPrint() {
+    let output: ElementType[] = [];
+
+    const _print = (pointer: NodeType) => {
+      if (!pointer) {
+        return;
+      }
+
+      _print(pointer.left);
+      output.push(pointer.data);
+      _print(pointer.right);
+    };
+    _print(this.head);
+    console.log(output);
+  }
+
+  public breadthFirstPrint() {
+    let output: ElementType[] = [];
+    let fifo: NodeType[] = [this.head];
+
+    while (fifo.length > 0) {
+      let element = fifo.shift();
+      if (!element) {
+        continue;
+      }
+      fifo.push(element.left, element.right);
+      output.push(element.data);
+    }
+
+    console.log(output);
   }
 
   private toLeft(node: INode, root: NodeType = this.head) {
