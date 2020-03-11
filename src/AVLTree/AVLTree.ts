@@ -168,8 +168,8 @@ export class AVLTree implements IAVLTree {
   private getBalance(root: NodeType): number {
     return root ? AVLTree.getHeight(root.left) - AVLTree.getHeight(root.right) : 0;
   }
-  private _insert(node: INode, root: NodeType)
-  {
+
+  private _insert(node: INode, root: NodeType) {
     if (!root) {
       return node;
     } else if (this.toLeft(node, root)) {

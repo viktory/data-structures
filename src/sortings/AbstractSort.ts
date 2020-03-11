@@ -7,7 +7,6 @@ export abstract class AbstractSort {
     for (let i = 0; i < getRandomInt(); i++) {
       this.elements.push(getRandomInt());
     }
-    // console.log(this.elements);
 
     let originElementsString = JSON.stringify([ ...this.elements].sort((a, b) => a-b));
     this.sort();
